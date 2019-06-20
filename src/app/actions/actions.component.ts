@@ -7,20 +7,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActionsComponent implements OnInit {
   actionsOptions;
-  toShowActionAttribute:boolean=false;
+  actions: any = [];
+  actionsAttribute: any = [];
+  toShowAction: boolean = false;
+  toShowActionAttribute: boolean = false;
+  selectedAction;
+  selectedActionAttribute
 
   constructor() { }
 
   ngOnInit() {
-    this.actionsOptions=[
-      {value:"1",label:"One"},
-      {value:"2",label:"Two"},
-      {value:"3",label:"Three"},
-      {value:"4",label:"Four"},
-      {value:"5",label:"Five"}
+    this.actionsOptions = [
+      { value: "1", label: "One" },
+      { value: "2", label: "Two" },
+      { value: "3", label: "Three" },
+      { value: "4", label: "Four" },
+      { value: "5", label: "Five" }
     ]
   }
-  addActions(){
-    this.toShowActionAttribute=true;
+  addActions() {
+    debugger
+    this.selectedAction;
+    // if(this.actions.length>0)
+    // this.actions.forEach(element => {
+    //   if(element!=this.selectedAction ){
+    //     this.actions.push(this.selectedAction);
+    //   }
+    // });
+    // else{
+    this.actions.push(this.selectedAction);
+    // }
+    this.toShowAction = true;
+  }
+  addActionsAttributes() {
+    this.actionsAttribute.push(this.selectedActionAttribute);
+
+    this.toShowActionAttribute = true;
   }
 }

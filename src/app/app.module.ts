@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ActionsComponent } from './actions/actions.component';
@@ -13,7 +14,7 @@ import { ActionsDataGridComponent } from './actions-data-grid/actions-data-grid.
     ActionsDataGridComponent
   ],
   imports: [
-    BrowserModule,AppRoutingModule
+    BrowserModule,AppRoutingModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

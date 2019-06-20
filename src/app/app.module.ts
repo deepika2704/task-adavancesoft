@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ActionsComponent } from './actions/actions.component';
 import { AppRoutingModule } from './app.routing';
+import { ActionsDataGridComponent } from './actions-data-grid/actions-data-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ActionsComponent
+    ActionsComponent,
+    ActionsDataGridComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule

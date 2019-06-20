@@ -1,0 +1,39 @@
+<!-- <div class="row">
+  <div col-sm-6> -->
+
+
+<label for="actions">Actions :</label>
+<div class="input-group mb-3">
+
+  <select id="actions" (change)="addActions()">
+    <option value="0">Select action</option>
+    <option *ngFor="let option of actionsOptions" [value]=option.value>{{option.label}}</option>
+  </select>
+  <div class="input-group-prepend">
+    <button class="input-group-text btn btn-primary">Add</button>
+  </div>
+</div>
+
+<div *ngIf="toShowActionAttribute">
+  <label for="actions">Actions :</label>
+  <div class="input-group mb-3">
+
+    <select id="actions">
+      <option value="0">Select action</option>
+      <option *ngFor="let option of actionsOptions" [value]=option.value>{{option.label}}</option>
+    </select>
+    <div class="input-group-prepend">
+      <button class="input-group-text btn btn-primary">Add</button>
+    </div>
+  </div>
+</div>
+
+<!-- </div>
+  <div col-sm-6>
+
+  </div>
+
+
+
+
+</div> -->

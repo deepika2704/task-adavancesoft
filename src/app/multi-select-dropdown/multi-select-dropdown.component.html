@@ -1,5 +1,12 @@
 <div>
-  <input type="text" class="form-control" (keyup)="search($event)" (click)="showDropdown = true;" placeholder="{{placeholderText}}">
+  <div class="input-group mb-3">
+
+    <input type="text" class="form-control" (keyup)="search($event)" (click)="showDropdown = true;"
+      placeholder="{{placeholderText}}">
+    <div class="input-group-prepend">
+      <button class="input-group-text btn btn-primary" (click)="addActions()">Add</button>
+    </div>
+  </div>
   <ul class="list-group" *ngIf="showDropdown">
     <li class="list-group-item" (click)="selectAllToggle()">
       <input type="checkbox" [checked]="allSelected"> Select all

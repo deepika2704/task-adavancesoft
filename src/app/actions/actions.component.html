@@ -28,17 +28,55 @@
   </div>
   <div class="col-sm-4" *ngIf="toShowAction">
     <button class="btn btn-primary ">Add</button>
+<!-- <div class="row">
+  <div col-sm-6> -->
+
+
+<label for="actions">Actions :</label>
+<section class="input-group mb-3">
+  <select id="actions" name="selectedAction" [(ngModel)]="selectedAction">
+    <option *ngFor="let option of actionsOptions" [value]=option.value>{{option.label}}</option>
+  </select>
+  <div class="input-group-prepend">
+    <button class="input-group-text btn btn-primary" (click)="addActions()">Add</button>
   </div>
+</section>
+
+<<<<<<< Updated upstream
+
+
+=======
+<section *ngIf="toShowAction">
+  <app-multi-select-dropdown [Options]="options" (selectedOptions)="selectedOptions($event)">
+  </app-multi-select-dropdown>
+</section>
+
+
+<div *ngIf="toShowAction">
+    <app-common-grid [Columns]="columns" [InputData]="rows" [canEdit]="true"></app-common-grid>
 </div>
+>>>>>>> Stashed changes
 
 
 
+<<<<<<< Updated upstream
+=======
+<div>
+  <section>
+    <ul>
+      <li *ngFor="let item of actions">{{item}}</li>
+    </ul>
+  </section>
 
-
-<app-common-grid [Columns]="columns" [InputData]="rows" [canEdit]="true"></app-common-grid>
-<!-- </div>
-  <div col-sm-6>
-
+  <section *ngIf="selectedAttributes.lenght > 0">
+    <ul>
+      <li *ngFor="let attr of selectedAttributes">
+        {{attr}}
+      </li>
+    </ul>
+  </section>
+</div>
+>>>>>>> Stashed changes
 
 
 
@@ -73,11 +111,15 @@
       </ul>
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
           <app-table-grid></app-table-grid>
 =======
             <!-- <app-table-grid></app-table-grid> -->
 >>>>>>> 5cde53c9c187bf747d8438f57e96ab8448eb757a
+=======
+          <!-- <app-table-grid></app-table-grid> -->
+>>>>>>> Stashed changes
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>

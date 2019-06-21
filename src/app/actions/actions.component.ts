@@ -4,6 +4,7 @@ import { Override } from '../common-grid/models/override';
 import { ColumnType } from '../common-grid/models/ColumnType';
 import { Columns } from '../common-grid/models/Columns';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-actions',
@@ -16,21 +17,22 @@ export class ActionsComponent implements OnInit {
   actionsAttribute: any = [];
   toShowAction: boolean = false;
   toShowActionAttribute: boolean = false;
-  selectedAction;
   selectedActionAttribute;
   options: any[];
   columns: Columns[];
   rows: any;
+  selectedAction: string;
+  selectedAttributes: any[] = [];
 
   constructor(private appservice: AppService) { }
 
   ngOnInit() {
     this.actionsOptions = [
-      { value: '1', label: 'One' },
-      { value: '2', label: 'Two' },
-      { value: '3', label: 'Three' },
-      { value: '4', label: 'Four' },
-      { value: '5', label: 'Five' }
+      { value: 'One', label: 'One' },
+      { value: 'Two', label: 'Two' },
+      { value: 'Three', label: 'Three' },
+      { value: 'Four', label: 'Four' },
+      { value: 'Five', label: 'Five' }
     ]
     this.options = [
       'One',
@@ -60,9 +62,8 @@ export class ActionsComponent implements OnInit {
     ];
     return override;
   }
-  
+
   addActions() {
-    this.selectedAction;
     // if(this.actions.length>0)
     // this.actions.forEach(element => {
     //   if(element!=this.selectedAction ){
@@ -80,7 +81,10 @@ export class ActionsComponent implements OnInit {
     this.toShowActionAttribute = true;
   }
   selectedOptions(pos) {
-    console.log(pos)
+    this.selectedAttributes = []
+    pos.forEach(element => {
+      this.selectedAttributes.push(this.options[element]);
+    });
+    console.log(this.selectedAttributes)
   }
-
 }

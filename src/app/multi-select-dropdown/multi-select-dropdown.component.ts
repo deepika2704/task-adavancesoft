@@ -27,7 +27,6 @@ export class MultiSelectDropdownComponent implements OnInit, OnChanges {
 
   set selectedList(val) {
     this.list = val;
-    this.selectedOptions.emit(this.selectedList);
   }
 
   get allSelected() {
@@ -97,6 +96,10 @@ export class MultiSelectDropdownComponent implements OnInit, OnChanges {
       this.selectedList = Array.from(Array(this.dropDownData.length).keys());
       this.placeholderText = this.selectedList.length + ' Selected';
     }
+  }
+
+  addActionsAttributes() {
+    this.selectedOptions.emit(this.selectedList);
   }
 
 }

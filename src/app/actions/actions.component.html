@@ -1,124 +1,45 @@
-<div class="row">
-  <div class="col-sm-4">
-    <label for="actions mt-3">Actions :</label>
-    <span class="input-group ">
-      <select id="actions" name="selectedAction" class="form-control" [(ngModel)]="selectedAction">
-        <option *ngFor="let option of actionsOptions" [value]=option.value>{{option.label}}</option>
-      </select>
-      <span class="input-group-prepend">
-        <i class="input-group-text fa fa-plus" (click)="addActions()"></i>
-      </span>
-    </span>
-  </div>
-  <div class="col-sm-4" *ngIf="toShowAction">
-    <!--  <div *ngIf="toShowAction">
-            <label for="actions">Actions :</label>
-            <div class="input-group mb-3">
-              <select id="actions" name="selectedActionAttribute" [(ngModel)]="selectedActionAttribute">
-                <option value="0">Select action</option>
-                <option *ngFor="let option of actionsOptions" [value]=option.value>{{option.label}}</option>
-              </select>
-              <div class="input-group-prepend">
-                <button class="input-group-text btn btn-primary" (click)="addActionsAttributes()">Add</button>
-              </div>
-            </div>
-          </div>-->
-    <app-multi-select-dropdown [Options]="options" (selectedOptions)="selectedOptions($event)">
-    </app-multi-select-dropdown>
-  </div>
-  <div class="col-sm-4" *ngIf="toShowAction">
-    <button class="btn btn-primary ">Add</button>
-<!-- <div class="row">
-  <div col-sm-6> -->
-
-
-<label for="actions">Actions :</label>
-<section class="input-group mb-3">
-  <select id="actions" name="selectedAction" [(ngModel)]="selectedAction">
-    <option *ngFor="let option of actionsOptions" [value]=option.value>{{option.label}}</option>
-  </select>
-  <div class="input-group-prepend">
-    <button class="input-group-text btn btn-primary" (click)="addActions()">Add</button>
-  </div>
-</section>
-
-
-
-<section *ngIf="toShowAction">
-  <app-multi-select-dropdown [Options]="options" (selectedOptions)="selectedOptions($event)">
-  </app-multi-select-dropdown>
-</section>
-
-
-<div *ngIf="toShowAction">
-    <app-common-grid [Columns]="columns" [InputData]="rows" [canEdit]="true"></app-common-grid>
-</div>
-
-
-
-<div>
-  <section>
-    <ul>
-      <li *ngFor="let item of actions">{{item}}</li>
-    </ul>
-  </section>
-
-  <section *ngIf="selectedAttributes.lenght > 0">
-    <ul>
-      <li *ngFor="let attr of selectedAttributes">
-        {{attr}}
-      </li>
-    </ul>
-  </section>
-</div>
-
-
-
-
-
-<div class="fluid-container" *ngIf="toShowActionAttribute">
-  <div style="display:grid;grid-template-columns: 80% 20%">
-    <div>
-      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-          aria-controls="v-pills-home" aria-selected="true" *ngFor="let action of actions">{{action}}</a>
-
-      </div>
-      <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...
+<div class="p-3">
+    <div class="row">
+        <div class="col-sm-4">
+          <label for="actions mt-3">Actions :</label>
+          <span class="input-group ">
+            <select id="actions" name="selectedAction" class="form-control" [(ngModel)]="selectedAction">
+              <option *ngFor="let option of actionsOptions" [value]=option.value>{{option.label}}</option>
+            </select>
+            <span class="input-group-prepend">
+              <i class="input-group-text fa fa-plus bg-primary text-white border-0" (click)="addActions()"></i>
+            </span>
+          </span>
         </div>
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...1</div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...2
+        <div class="col-sm-4" *ngIf="toShowAction">
+          <app-multi-select-dropdown [Options]="options" (selectedOptions)="selectedOptions($event)">
+          </app-multi-select-dropdown>
         </div>
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...3
+        <div class="col-sm-4" *ngIf="toShowAction">
+          <button class="btn btn-primary " (click)="addActionsAttributes()">Add</button>
         </div>
       </div>
-    </div>
-    <div>
-      <p>&nbsp;Assemble</p>
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item" *ngFor="let attribute of actionsAttribute">
-          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-            aria-controls="pills-home" aria-selected="true">{{attribute}}</a>
-        </li>
-
-      </ul>
-      <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-          <app-table-grid></app-table-grid>
-=======
-            <!-- <app-table-grid></app-table-grid> -->
->>>>>>> 5cde53c9c187bf747d8438f57e96ab8448eb757a
-=======
-          <!-- <app-table-grid></app-table-grid> -->
->>>>>>> Stashed changes
+      
+      <div class="row mt-3" *ngIf="toShowActionAttribute">
+        <div class="col-sm-2 nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active my-1" id="v-pills-home-tab" data-toggle="pill" role="tab"
+            aria-controls="v-pills-home" aria-selected="true" *ngFor="let item of actions">{{item}}</a>
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+      
+        <div class="col-sm-10">
+          <div class="row">
+            <section class="col-12">
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                  <li class="nav-item px-1" *ngFor="let attr of selectedAttributes">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" role="tab"
+                      aria-controls="pills-home" aria-selected="true"  routerLink="hellogreets">{{attr}}</a>
+                  </li>
+                </ul>
+            </section>
+          </div>
+          <div class="row">
+            <app-common-grid [Columns]="columns" [InputData]="rows" [canEdit]="true"></app-common-grid>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
 </div>

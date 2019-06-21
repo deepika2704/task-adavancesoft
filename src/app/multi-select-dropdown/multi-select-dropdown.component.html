@@ -1,15 +1,15 @@
-<div class="input-group mb-3">
+<div class="input-group">
   <div class="">Action Attributes :</div>
-  <span class="input-group mb-3 mt-2">
+  <span class="input-group mt-2">
     <input type="text" class="form-control" (keyup)="search($event)" (click)="showDropdown = true;"
       placeholder="{{placeholderText}}">
     <div class="input-group-prepend">
       <span class="input-group-text	fa fa-sort-desc"></span>
-      <button class="input-group-text btn btn-primary fa fa-plus" (click)="addActions()"></button>
+      <i class="input-group-text fa fa-plus  bg-primary text-white border-0" (click)="addActions()"></i>
     </div>
   </span>
 </div>
-<ul class="list-group" *ngIf="showDropdown">
+<ul class="list-group dropdown" *ngIf="showDropdown">
   <li class="list-group-item" (click)="selectAllToggle()">
     <input type="checkbox" [checked]="allSelected"> Select all
   </li>

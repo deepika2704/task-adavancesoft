@@ -64,15 +64,7 @@ export class ActionsComponent implements OnInit {
   }
 
   addActions() {
-    // if(this.actions.length>0)
-    // this.actions.forEach(element => {
-    //   if(element!=this.selectedAction ){
-    //     this.actions.push(this.selectedAction);
-    //   }
-    // });
-    // else{
     this.actions.push(this.selectedAction);
-    // }
     this.toShowAction = true;
   }
   addActionsAttributes() {

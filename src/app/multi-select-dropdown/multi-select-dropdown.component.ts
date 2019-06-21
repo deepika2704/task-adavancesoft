@@ -59,6 +59,7 @@ export class MultiSelectDropdownComponent implements OnInit, OnChanges {
     }
     this.placeholderText = this.selectedList.length + ' Selected';
     this.selectedList = this.selectedList;
+    this.selectedOptions.emit(this.selectedList);
   }
 
   search(text) {
@@ -96,9 +97,6 @@ export class MultiSelectDropdownComponent implements OnInit, OnChanges {
       this.selectedList = Array.from(Array(this.dropDownData.length).keys());
       this.placeholderText = this.selectedList.length + ' Selected';
     }
-  }
-
-  addActionsAttributes() {
     this.selectedOptions.emit(this.selectedList);
   }
 

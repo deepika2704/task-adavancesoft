@@ -7,13 +7,15 @@ import { ActionsComponent } from './actions/actions.component';
 import { AppRoutingModule } from './app.routing';
 import { ActionsDataGridComponent } from './actions-data-grid/actions-data-grid.component';
 import { MultiSelectDropdownComponent } from './multi-select-dropdown/multi-select-dropdown.component';
+import { TableGridComponent } from './table-grid/table-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActionsComponent,
     ActionsDataGridComponent,
-    MultiSelectDropdownComponent
+    MultiSelectDropdownComponent,
+    TableGridComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,FormsModule

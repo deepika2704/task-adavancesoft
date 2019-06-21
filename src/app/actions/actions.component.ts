@@ -12,7 +12,8 @@ export class ActionsComponent implements OnInit {
   toShowAction: boolean = false;
   toShowActionAttribute: boolean = false;
   selectedAction;
-  selectedActionAttribute
+  selectedActionAttribute;
+  options: any[];
 
   constructor() { }
 
@@ -23,6 +24,12 @@ export class ActionsComponent implements OnInit {
       { value: "3", label: "Three" },
       { value: "4", label: "Four" },
       { value: "5", label: "Five" }
+    ]
+    this.options = [
+      'One',
+      'Two',
+      'Three',
+      'Four'
     ]
   }
   addActions() {
@@ -43,5 +50,8 @@ export class ActionsComponent implements OnInit {
     this.actionsAttribute.push(this.selectedActionAttribute);
 
     this.toShowActionAttribute = true;
+  }
+  selectedOptions(pos) {
+    console.log(pos)
   }
 }

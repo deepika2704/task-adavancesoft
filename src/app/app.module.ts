@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ActionsComponent } from './actions/actions.component';
 import { AppRoutingModule } from './app.routing';
 import { ActionsDataGridComponent } from './actions-data-grid/actions-data-grid.component';
+import { MultiSelectDropdownComponent } from './multi-select-dropdown/multi-select-dropdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActionsComponent,
-    ActionsDataGridComponent
+    ActionsDataGridComponent,
+    MultiSelectDropdownComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,FormsModule

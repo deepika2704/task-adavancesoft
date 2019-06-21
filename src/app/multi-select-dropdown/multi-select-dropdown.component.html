@@ -1,34 +1,19 @@
-<div>
-  <div class="input-group mb-3">
-
+<div class="input-group mb-3">
+  <div class="">Action Attributes :</div>
+  <span class="input-group mb-3 mt-2">
     <input type="text" class="form-control" (keyup)="search($event)" (click)="showDropdown = true;"
       placeholder="{{placeholderText}}">
     <div class="input-group-prepend">
-      <button class="input-group-text btn btn-primary" (click)="addActions()">Add</button>
+      <span class="input-group-text	fa fa-sort-desc"></span>
+      <button class="input-group-text btn btn-primary fa fa-plus" (click)="addActions()"></button>
     </div>
-  </div>
-  <ul class="list-group" *ngIf="showDropdown">
-    <li class="list-group-item" (click)="selectAllToggle()">
-      <input type="checkbox" [checked]="allSelected"> Select all
-    </li>
-    <li *ngFor=" let option of dropDownData" class="list-group-item" (click)="selectOption(option.index)">
-      <input type="checkbox" [checked]=isChecked(option.index) id="option.index"> {{option.value}}
-    </li>
-  </ul>
+  </span>
 </div>
-<div style="width:250px">
-  <div style="float: left;">
-    <input type="text" class="form-control" (keyup)="search($event)" (click)="showDropdown = true;" placeholder="{{placeholderText}}">
-    <ul class="list-group" *ngIf="showDropdown">
-      <li class="list-group-item" (click)="selectAllToggle()">
-        <input type="checkbox" [checked]="allSelected"> Select all
-      </li>
-      <li *ngFor=" let option of dropDownData" class="list-group-item" (click)="selectOption(option.index)">
-        <input type="checkbox" [checked]=isChecked(option.index) id="option.index"> {{option.value}}
-      </li>
-    </ul>
-  </div>
-  <div class="input-group-prepend" style="float:right">
-    <button class="input-group-text btn btn-primary" (click)="addActionsAttributes()">Add</button>
-  </div>
-</div>
+<ul class="list-group" *ngIf="showDropdown">
+  <li class="list-group-item" (click)="selectAllToggle()">
+    <input type="checkbox" [checked]="allSelected"> Select all
+  </li>
+  <li *ngFor=" let option of dropDownData" class="list-group-item" (click)="selectOption(option.index)">
+    <input type="checkbox" [checked]=isChecked(option.index) id="option.index"> {{option.value}}
+  </li>
+</ul>

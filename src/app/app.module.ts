@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     ActionsComponent,
     ActionsDataGridComponent,
     MultiSelectDropdownComponent,
-    CommonGridComponent
+    CommonGridComponent,
   ],
   imports: [
     BrowserModule,

@@ -33,7 +33,6 @@ export class ActionsComponent implements OnInit {
     ]
   }
   addActions() {
-    debugger
     this.selectedAction;
     // if(this.actions.length>0)
     // this.actions.forEach(element => {
@@ -54,4 +53,5 @@ export class ActionsComponent implements OnInit {
   selectedOptions(pos) {
     console.log(pos)
   }
+
 }

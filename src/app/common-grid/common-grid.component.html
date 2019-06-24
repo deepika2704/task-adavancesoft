@@ -5,6 +5,8 @@
     <option value="50">50</option>
     <option value="100">100</option>
   </select>
+  <button class="fa fa-plus btn btn-primary" (click)="AddRow()"></button>
+
   <!-- <div class="float-right">
     <input type="text" name="" id="search" placeholder="Search" autocomplete="off" class="p-2"
       (keyup)="search($event.target.value)">
@@ -45,6 +47,7 @@
           <span><i class="fa fa-check text-success pointer" aria-hidden="true" (click)="save(i)" *ngIf="isEditable(i)"></i></span>
           &nbsp;
           <span><i class="fa fa-times text-danger pointer" aria-hidden="true" (click)="cancel(i)" *ngIf="isEditable(i)"></i></span>
+          <span><i class="fa fa-trash text-danger pointer" (click)="deleteRow()"></i></span>
         </td>
       </tr>
     </tbody>

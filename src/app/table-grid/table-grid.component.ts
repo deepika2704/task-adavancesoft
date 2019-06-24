@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './table-grid.component.html',
   styleUrls: ['./table-grid.component.css']
 })
+
 export class TableGridComponent implements OnInit {
 
   constructor() { }
@@ -23,7 +24,5 @@ export class TableGridComponent implements OnInit {
   deleteFieldValue(index) {
       this.fieldArray.splice(index, 1);
   }
-
-
 
 }

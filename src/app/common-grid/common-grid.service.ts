@@ -6,6 +6,7 @@ import { ColumnType } from './models/ColumnType';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CommonGridService {
 
   constructor() { }

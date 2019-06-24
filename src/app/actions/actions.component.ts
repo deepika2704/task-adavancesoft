@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Override } from '../common-grid/models/override';
 import { ColumnType } from '../common-grid/models/ColumnType';
 import { Columns } from '../common-grid/models/Columns';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-actions',
@@ -23,6 +21,8 @@ export class ActionsComponent implements OnInit {
   rows: any;
   selectedAction: string;
   selectedAttributes: any[] = [];
+  index: number;
+  override: Override[];
 
   constructor(private appservice: AppService) { }
 
@@ -47,7 +47,8 @@ export class ActionsComponent implements OnInit {
   }
 
   gridInit(): Override[] {
-    const override: Override[] = [
+    this.override= 
+    [
       { columnName: 'Pn', name: 'PN', colType: ColumnType.Number },
       { columnName: 'Description', name: 'Description', colType: ColumnType.String },
       { columnName: 'ItemsClassifications', name: 'Items Classifications', colType: ColumnType.String },
@@ -60,23 +61,55 @@ export class ActionsComponent implements OnInit {
       { columnName: 'Deffered', name: 'Deffered', colType: ColumnType.String },
       { columnName: 'FigureId', name: 'Figure Id', colType: ColumnType.Number },
     ];
-    return override;
+    return this.override;
   }
 
   addActions() {
+    if (this.selectedAction == undefined) {
+      alert("Please Select an Action to Continue");
+      return;
+    }
     this.actions.push(this.selectedAction);
     this.toShowAction = true;
   }
-  addActionsAttributes() {
-    this.actionsAttribute.push(this.selectedActionAttribute);
 
-    this.toShowActionAttribute = true;
+  addActionsAttributes() {
+    this.selectedOptions(this.index);
+    if (this.selectedAttributes.length > 0) {
+      this.toShowActionAttribute = true;
+    }
   }
   selectedOptions(pos) {
+    this.index = pos;
+    if (pos == undefined) {
+      alert('Please Select an Action Attribute to Continue')
+      return;
+    }
     this.selectedAttributes = []
     pos.forEach(element => {
       this.selectedAttributes.push(this.options[element]);
     });
     console.log(this.selectedAttributes)
   }
+
+  addRow(){
+    let newRow = {
+      "Pn" : 1,
+      "Description" : "This is description",
+      "ItemsClassifications": "",
+      "Qty": 100,
+      "UOM": 200,
+      "Condition" : "NA",
+      "UnitCost" : 500,
+      "ExtCost" : 10,
+      "Provission" : "NA",
+      "Deffered" : "Yes",
+      "FigureId" : 1
+  }
+
+  let tabledata = this.rows;
+  tabledata.push(newRow);
+  this.rows = tabledata;
+  console.log(this.rows);
+}
 }

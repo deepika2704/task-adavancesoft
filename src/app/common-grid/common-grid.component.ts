@@ -30,6 +30,7 @@ export class CommonGridComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
   ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
     if (changes.InputData && changes.InputData.currentValue !== changes.InputData.previousValue) {
       this.data = JSON.parse(JSON.stringify(changes.InputData.currentValue));
       this.shallowCopy = this.data;
@@ -55,6 +56,7 @@ export class CommonGridComponent implements OnInit, OnChanges {
   }
 
   edit(i) {
+    console.log(this.InputData);
     this.editPos = i;
     this.isEditable(i);
   }
@@ -97,6 +99,7 @@ export class CommonGridComponent implements OnInit, OnChanges {
       return null;
     });
   }
+  
   search(val: string) {
     this.data = this.InputData;
     const obj = [];
@@ -126,4 +129,30 @@ export class CommonGridComponent implements OnInit, OnChanges {
       this.IterationRange.length = this.data.length;
     }
   }
+
+  private fieldArray: Array<any> = [];
+  private newAttribute: any = {};
+
+  row;
+  AddRow() {
+    this.row = Object.keys[this.InputData[0]];
+    console.log("test"+this.row);
+    debugger
+      this.Columns.push()
+      // this.newAttribute = {};
+      console.log(this.Columns);
+  }
+  deleteRow(index) {
+    this.data.splice(index, 1);
+}
+
+
+
+  // deleteFieldValue(index) {
+  //     this.fieldArray.splice(index, 1);
+  // }
+
+  // AddRow(){
+    
+  // }
 }

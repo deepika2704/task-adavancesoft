@@ -4,10 +4,7 @@
     <span class="input-group mt-2">
       <input type="text" class="form-control" (keyup)="search($event)" (click)="showDropdown = true;"
         placeholder="{{placeholderText}}">
-      <div class="input-group-prepend">
-        <span class="input-group-text	fa fa-sort-desc"></span>
-        <i class="input-group-text fa fa-plus  bg-primary text-white border-0" (click)="addActions()"></i>
-      </div>
+      
     </span>
   </div>
   <ul class="list-group dropdown" *ngIf="showDropdown">

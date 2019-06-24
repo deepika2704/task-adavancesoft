@@ -1,11 +1,13 @@
 import { AppService } from './../app.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { Override } from '../common-grid/models/override';
 import { ColumnType } from '../common-grid/models/ColumnType';
 import { Columns } from '../common-grid/models/Columns';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-actions',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './actions.component.html',
   styleUrls: ['./actions.component.css']
 })
@@ -111,5 +113,35 @@ export class ActionsComponent implements OnInit {
   tabledata.push(newRow);
   this.rows = tabledata;
   console.log(this.rows);
-}
+  }
+
+  add(){
+    let newRow = {
+      "Pn" : "",
+      "Description" : "",
+      "ItemsClassifications": "",
+      "Qty": "",
+      "UOM": "",
+      "Condition" : "",
+      "UnitCost" : "",
+      "ExtCost" : "",
+      "Provission" : "",
+      "Deffered" : "",
+      "FigureId" : ""
+  }
+
+  let tabledata = this.rows;
+  tabledata.push(newRow);
+  
+  this.rows = tabledata;
+  console.log(this.rows);
+
+  this.rows = this.rows.slice();
+
+  }
+
+  delete(i){
+    this.rows.splice(1, 1);
+    this.rows = this.rows.slice(); 
+  }
 }

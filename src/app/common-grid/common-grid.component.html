@@ -47,7 +47,7 @@
           <span><i class="fa fa-check text-success pointer" aria-hidden="true" (click)="save(i)" *ngIf="isEditable(i)"></i></span>
           &nbsp;
           <span><i class="fa fa-times text-danger pointer" aria-hidden="true" (click)="cancel(i)" *ngIf="isEditable(i)"></i></span>
-          <span><i class="fa fa-trash text-danger pointer" (click)="deleteRow()"></i></span>
+          <span><i class="fa fa-trash text-danger pointer" (click)="deleteRow(i)"></i></span>
         </td>
       </tr>
     </tbody>

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, SimpleChanges, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { ColumnType } from './models/ColumnType';
 import { Columns } from './models/Columns';
 import { AppService } from '../app.service';
@@ -13,6 +13,8 @@ export class CommonGridComponent implements OnInit, OnChanges {
   @Input() Columns: Columns[];
   @Input() InputData: any[];
   @Input() canEdit: boolean;
+  @Output() newRow = new EventEmitter();
+  @Output() delete = new EventEmitter();
   IterationRange: number[] = [];
   data: any[];
   asc: boolean;
@@ -24,7 +26,7 @@ export class CommonGridComponent implements OnInit, OnChanges {
 
   @Output() EditEvent = new EventEmitter<number>();
 
-  constructor(private service: AppService) {
+  constructor(private service: AppService, private cd: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -122,6 +124,7 @@ export class CommonGridComponent implements OnInit, OnChanges {
     this.data = obj;
     //    this.fixIterationRange();
   }
+  
   fixIterationRange() {
     if (this.IterationRange.length > 10) {
       this.IterationRange.length = 10;
@@ -130,29 +133,12 @@ export class CommonGridComponent implements OnInit, OnChanges {
     }
   }
 
-  private fieldArray: Array<any> = [];
-  private newAttribute: any = {};
-
-  row;
   AddRow() {
-    this.row = Object.keys[this.InputData[0]];
-    console.log("test"+this.row);
-    debugger
-      this.Columns.push()
-      // this.newAttribute = {};
-      console.log(this.Columns);
+    this.newRow.emit();
   }
+
   deleteRow(index) {
-    this.data.splice(index, 1);
+    this.delete.emit(index);
 }
 
-
-
-  // deleteFieldValue(index) {
-  //     this.fieldArray.splice(index, 1);
-  // }
-
-  // AddRow(){
-    
-  // }
 }

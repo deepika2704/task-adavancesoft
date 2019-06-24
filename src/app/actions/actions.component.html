@@ -35,9 +35,8 @@
                 </ul>
             </section>
           </div>
-          <button (click)="addRow()">Add</button>
           <div class="row">
-            <app-common-grid [Columns]="columns" [InputData]="rows" [canEdit]="true"></app-common-grid>
+            <app-common-grid [Columns]="columns" [InputData]="rows" [canEdit]="true" (newRow)="add($event)" (delete)="delete($event)"></app-common-grid>
           </div>
         </div>
       </div>
